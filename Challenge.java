@@ -1,67 +1,20 @@
-public class Gizmo
- {
-     /** Returns the name of the manufacturer of this Gizmo. */
-     public String getMaker()
-     {
-         /* implementation not shown */
-     }
-     /** Returns true if this Gizmo is electronic, and false
-     * otherwise.
-     */
-     public boolean isElectronic()
-     {
-         /* implementation not shown */
-     }
-     /** Returns true if this Gizmo is equivalent to the Gizmo
-     * object represented by the
-     * parameter, and false otherwise.
-     */
-     public boolean equals(Object other)
-     {
-         /* implementation not shown */
-     }
-     // There may be instance variables, constructors, and methods not shown.
-}
+public String ceaserCypher(String encoded, int distance)
+    {
+        private String[] alphabet = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        encoded.toUpperCase();
 
+        String decodedString = "";
 
-
-public class OnlinePurchaseManager {
-
-     /** An ArrayList of purchased Gizmo objects, * instantiated in the constructor. */
-
-    private ArrayList<Gizmo> purchases;
-
-    /** Returns the number of purchased Gizmo objects that are electronic * whose manufacturer is maker, as described in part (a). */
-    
-     public int countElectronicsByMaker(String maker)
-     {
-        int count;
-        
-        for(Gizmo object: purchases)
+        for (int i = 0; i < alphabet.length; i++)
         {
-            if(object.isElectronic()  && (object.getMaker() == maker)
+            if ((i + distance) < 26)
             {
-                count++;
+                decodedString += alphabet[(i + distance)];
+            } else
+            {
+                decodedString += alphabet[(i + distance) - 26];
             }
-        return count;
         }
-     }
-
-     /** Returns true if any pair of adjacent purchased Gizmo objects are
-     * equivalent, and false otherwise, as described in part (b).
-     */
-     public boolean hasAdjacentEqualPair()
-     {
-         for (int i = 0; i < purchases.size() - 1; i++) {
-             if(purchases.get(i).equals(purchases.get(i+1)))
-             {
-                 return true;
-             }
-             else
-             {
-                 return false;
-             }
-         }
-     }
-     // There may be instance variables, constructors, and methods not shown.
-}
+        
+        return decodedString;
+    }
