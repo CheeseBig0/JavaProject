@@ -33,15 +33,17 @@ public class OnlinePurchaseManager {
 
     /** Returns the number of purchased Gizmo objects that are electronic * whose manufacturer is maker, as described in part (a). */
     
-    private int count;
      public int countElectronicsByMaker(String maker)
      {
+        int count;
+        
         for(Gizmo object: purchases)
         {
-            if(object.isElectronic())  if (object.getMaker() == maker)
+            if(object.isElectronic()  && (object.getMaker() == maker)
             {
-                
+                count++;
             }
+        return count;
         }
      }
 
@@ -50,7 +52,16 @@ public class OnlinePurchaseManager {
      */
      public boolean hasAdjacentEqualPair()
      {
-         /* to be implemented in part (b) */
+         for (int i = 0; i < purchases.size() - 1; i++) {
+             if(purchases.get(i).equals(purchases.get(i+1)))
+             {
+                 return true;
+             }
+             else
+             {
+                 return false;
+             }
+         }
      }
      // There may be instance variables, constructors, and methods not shown.
 }
